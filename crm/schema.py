@@ -4,6 +4,8 @@ from decimal import Decimal
 from typing import List
 
 import graphene
+from graphene_django.filter import DjangoFilterConnectionField
+
 from graphene import Field, List as GQLList, String, Int, Float
 from graphene_django import DjangoObjectType
 from django.db import transaction, IntegrityError
