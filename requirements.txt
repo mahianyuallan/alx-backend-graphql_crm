@@ -1,3 +1,8 @@
 django-crontab
 gql
 requests
+celery
+django-celery-beat
+redis
+requests
+gql

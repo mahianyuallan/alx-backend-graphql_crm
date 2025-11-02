@@ -21,3 +21,17 @@ class UpdateLowStockProducts(graphene.Mutation):
 
 class Mutation(graphene.ObjectType):
     update_low_stock_products = UpdateLowStockProducts.Field()
+
+class Query(graphene.ObjectType):
+    customers_count = graphene.Int()
+    orders_count = graphene.Int()
+    total_revenue = graphene.Float()
+
+    def resolve_customers_count(root, info):
+        return Customer.objects.count()
+
+    def resolve_orders_count(root, info):
+        return Order.objects.count()
+
+    def resolve_total_revenue(root, info):
+        return sum(order.total_amount for order in Order.objects.all())
